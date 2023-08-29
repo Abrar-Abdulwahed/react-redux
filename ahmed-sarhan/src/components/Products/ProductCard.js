@@ -5,7 +5,7 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCartAction } from './../../redux/actions/cartAction';
+import { addToCartAction } from '../../redux/actions/cartActions';
 const ProductCard = ({ product }) => {
 	const { pathname } = useLocation();
 	const dispatch = useDispatch();
