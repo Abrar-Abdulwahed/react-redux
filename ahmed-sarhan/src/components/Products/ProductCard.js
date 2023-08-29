@@ -5,7 +5,7 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCartAction, removeFromCartAction } from '../../redux/actions/cartActions';
+import { addToCartAction, removeFromCartAction, incrementQuantity, decrementQuantity } from '../../redux/actions/cartActions';
 const ProductCard = ({ product }) => {
 	const { pathname } = useLocation();
 	const dispatch = useDispatch();
@@ -19,6 +19,13 @@ const ProductCard = ({ product }) => {
 		dispatch(removeFromCartAction(product.name));
 	}
 
+	const incrementQty = () => {
+		dispatch(incrementQuantity(product.name));
+	}
+
+	const decrementQty = () => {
+		dispatch(decrementQuantity(product.name));
+	}
 
 	console.log('is', isInCart);
 
@@ -39,11 +46,11 @@ const ProductCard = ({ product }) => {
 				<div className={styles['product-footer']}>
 					{isInCart ? (
 						<>
-							<button>
+							<button onClick={() => incrementQty()}>
 								<AiOutlinePlus />
 							</button>
 							<h3>{product.price}EGP</h3>
-							<button>
+							<button onClick={() => decrementQty()} disabled={product.quantity <= 1}>
 								<AiOutlineMinus />
 							</button>
 						</>

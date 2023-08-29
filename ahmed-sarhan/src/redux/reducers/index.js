@@ -43,7 +43,6 @@ const rootReducer = (state = INITIAL_STATE, action) => {
     case CART_ACTION_TYPES.REMOVE_FROM_CART:
        // Find the index of the item to be deleted
       const itemIndex = state.cart.findIndex((item) => item.name === payload);
-
       if (itemIndex !== -1) {
         // Get the item and its price
         const deletedItem = state.cart[itemIndex];
@@ -59,6 +58,39 @@ const rootReducer = (state = INITIAL_STATE, action) => {
         };
       }
       return state;
+    
+    case CART_ACTION_TYPES.INCREMENT:
+      // Find the index of the item to be incremented
+      const itemIndex_inc = state.cart.findIndex(item => item.name === payload);
+      if(itemIndex_inc !== -1){
+        const updatedCart = [...state.cart];
+        const targetItem = updatedCart[itemIndex_inc];
+        targetItem.quantity += 1;
+        console.log(state.cart);
+        return {
+          ...state,
+          cart: updatedCart,
+          cartTotal: state.cartTotal + targetItem.price
+        };
+      }
+      return state;
+
+    case CART_ACTION_TYPES.DECREMENT:
+        // Find the index of the item to be incremented
+        const itemIndex_dec = state.cart.findIndex(item => item.name === payload);
+        if(itemIndex_dec !== -1){
+          const updatedCart = [...state.cart];
+          const targetItem = updatedCart[itemIndex_dec];
+          if(targetItem.quantity >= 1){
+            targetItem.quantity -= 1;
+            return {
+              ...state,
+              cart: updatedCart,
+              cartTotal: state.cartTotal - targetItem.price
+            };
+          }
+        }
+        return state;
 
     default:
       return state;
