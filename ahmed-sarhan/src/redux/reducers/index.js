@@ -1,9 +1,9 @@
 import { CART_ACTION_TYPES } from './../actions/cartActions';
-import products from '../../data.json'
+import data from '../../data.json'
 const INITIAL_STATE = {
     cart: [],
     cartTotal: 0,
-    products
+    products: data.menu
 }
 const rootReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
