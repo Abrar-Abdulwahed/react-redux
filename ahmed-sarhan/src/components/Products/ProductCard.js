@@ -4,9 +4,17 @@ import { BsCartPlus, BsCartXFill } from 'react-icons/bs';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCartAction } from './../../redux/actions/cartAction';
 const ProductCard = ({ product }) => {
 	const { pathname } = useLocation();
+	const dispatch = useDispatch();
 	const isInCart = pathname.includes('cart');
+
+	const addToCart = () => {
+		dispatch(addToCartAction(product));
+	}
+
 	console.log('is', isInCart);
 
 	return (
@@ -37,7 +45,7 @@ const ProductCard = ({ product }) => {
 					) : (
 						<>
 							<h3>{product.price}EGP</h3>
-							<button>
+							<button onClick={() => addToCart()} >
 								<BsCartPlus />
 							</button>
 						</>
