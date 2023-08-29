@@ -5,7 +5,7 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCartAction } from '../../redux/actions/cartActions';
+import { addToCartAction, removeFromCartAction } from '../../redux/actions/cartActions';
 const ProductCard = ({ product }) => {
 	const { pathname } = useLocation();
 	const dispatch = useDispatch();
@@ -15,12 +15,17 @@ const ProductCard = ({ product }) => {
 		dispatch(addToCartAction(product));
 	}
 
+	const removeFromCart = () => {
+		dispatch(removeFromCartAction(product.name));
+	}
+
+
 	console.log('is', isInCart);
 
 	return (
 		<div className={styles['product-card']}>
 			{isInCart && (
-				<button className={styles['del-product']}>
+				<button className={styles['del-product']} onClick={() => removeFromCart()}>
 					<BsCartXFill />
 				</button>
 			)}
