@@ -8,13 +8,19 @@ const INITIAL_STATE = {
 
 const recipesReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		case RECIPES_ACTION_TYPES.ADD_TO_WISH_LIST: {
+        case RECIPES_ACTION_TYPES.GET_RECIPES: {
+			return {
+				...state,
+				recipes: [...action.payload],
+			};
+		}
+		case RECIPES_ACTION_TYPES.ADD_TO_WISHLIST: {
 			return {
 				...state,
 				wishlist: state.wishlist.concat(action.payload),
 			};
 		}
-		case RECIPES_ACTION_TYPES.REMOVE_FROM_WISH_LIST: {
+		case RECIPES_ACTION_TYPES.REMOVE_FROM_WISHLIST: {
 			const newWishList = [...state.wishlist].filter(
 				(recipe) => recipe.id !== action.payload
 			);

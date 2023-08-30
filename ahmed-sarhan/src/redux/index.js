@@ -1,12 +1,10 @@
-import { combineReducers, createStore } from "redux";
-import recipesReducer from "./reducers/recipes.reducer";
-import menuReducer from "./reducers/menu.reducer";
+import { createStore, applyMiddleware } from "redux";
+import { rootReducer } from "./reducers";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const rootReducer = combineReducers({
-    menu: menuReducer,
-    blog: recipesReducer,
-})
 export const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools(applyMiddleware(thunk))
 );
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
