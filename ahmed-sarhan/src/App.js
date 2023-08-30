@@ -6,6 +6,8 @@ import Cart from './pages/Cart';
 import { Provider } from 'react-redux';
 import { store } from './redux';
 import AddRecipe from './pages/AddReciepe';
+import RecipesPage from './pages/Recipes';
+import Wishlist from './pages/Wishlist';
 function App() {
 	return (
 		<div>
@@ -14,7 +16,9 @@ function App() {
 					<Header />
 					<Routes>
 						<Route element={<Cart />} path="/cart" exact />
-						<Route element={<AddRecipe />} path="/add-recipes" exact />
+						{/* <Route element={<AddRecipe />} path="/add-recipes" exact /> */}
+						<Route element={<RecipesPage />} path="/recipes" exact />
+						<Route element={<Wishlist />} path="/wishlist" exact />
 						<Route element={<Menu />} path="/" exact />
 					</Routes>
 				</BrowserRouter>

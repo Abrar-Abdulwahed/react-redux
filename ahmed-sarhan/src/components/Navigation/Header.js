@@ -5,7 +5,7 @@ import styles from './header.module.scss';
 import { useSelector } from 'react-redux';
 const Header = () => {
 	// const cartLength = useSelector(state => state.cart.length);
-	const cartLength = useSelector(state => state.cart.reduce((acc, curr) => acc + curr.quantity,0));
+	const cartLength = useSelector(state => state.menu.cart.reduce((acc, curr) => acc + curr.quantity,0));
 	return (
 		<header className={styles.header}>
 			<NavLink to="/" className={styles['navbar-brand']}>
@@ -13,6 +13,28 @@ const Header = () => {
 			</NavLink>
 
 			<ul>
+				<li>
+					<NavLink
+						className={({ isActive }) =>
+							styles['nav-link'] +
+							(isActive ? ` ${styles['nav-link-active']}` : '')
+						}
+						to="/wishlist"
+					>
+						Wishlist
+					</NavLink>
+				</li>
+				<li>
+					<NavLink
+						className={({ isActive }) =>
+							styles['nav-link'] +
+							(isActive ? ` ${styles['nav-link-active']}` : '')
+						}
+						to="/recipes"
+					>
+						Blog
+					</NavLink>
+				</li>
 				<li>
 					<NavLink
 						className={({ isActive }) =>

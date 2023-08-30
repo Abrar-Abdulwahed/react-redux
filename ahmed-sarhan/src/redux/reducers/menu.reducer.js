@@ -1,11 +1,11 @@
-import { CART_ACTION_TYPES } from './../actions/cartActions';
+import { CART_ACTION_TYPES } from '../actions/cart.actions';
 import data from '../../data.json'
 const INITIAL_STATE = {
     cart: [],
     cartTotal: 0,
     products: data.menu
 }
-const rootReducer = (state = INITIAL_STATE, action) => {
+const menuReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
     case CART_ACTION_TYPES.ADD_TO_CART:
@@ -97,4 +97,4 @@ const rootReducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default rootReducer
+export default menuReducer

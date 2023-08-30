@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductsList from './../components/Products/ProductsList';
 const Cart = () => {
-	const { cart: cartProds,  cartTotal: total} = useSelector(state => state);
+	const { cart: cartProds,  cartTotal: total} = useSelector(state => state.menu);
 	// const total = cartProds.reduce((acc, curr) => acc + curr.price, 0);
 	return (
 		<div>
