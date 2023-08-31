@@ -1,9 +1,8 @@
 import { RECIPES_ACTION_TYPES } from '../actions/recipes.actions';
-import data from '../../data.json';
 
 const INITIAL_STATE = {
 	wishlist: [],
-	recipes: data.recipes,
+	recipes: [],
 };
 
 const recipesReducer = (state = INITIAL_STATE, action) => {

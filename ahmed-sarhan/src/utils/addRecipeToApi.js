@@ -1,6 +1,5 @@
-import axios from 'axios';
+import { Axios } from "../api/axios";
 
-const FIREBASE_API = 'https://redux-83bc9-default-rtdb.firebaseio.com'; //process.env.REACT_APP_FIREBASE_API;
 export const addRecipeToApi = async(recipe) => {
-    const response = await axios.post(`${FIREBASE_API}/recipe.json`, recipe);
+    const response = await Axios.post(`/recipe.json`, recipe);
 }

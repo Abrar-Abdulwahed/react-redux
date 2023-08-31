@@ -4,7 +4,7 @@ export const RECIPES_ACTION_TYPES = {
 	REMOVE_FROM_WISHLIST: 'REMOVE_FROM_WISHLIST',
 };
 
-export const getRecipes = (recipes) => {
+export const getRecipesAction = (recipes) => {
 	return {
 		type: RECIPES_ACTION_TYPES.GET_RECIPES,
 		payload: recipes,
