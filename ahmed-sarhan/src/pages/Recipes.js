@@ -5,10 +5,10 @@ import { getRecipesService } from '../redux/services/recipes.services';
 
 const RecipesPage = () => {
     const recipes = useSelector((state) => state.blog.recipes);
-    const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getRecipesService())
-	}, [dispatch]);
+    // const dispatch = useDispatch();
+	// useEffect(() => {
+	// 	dispatch(getRecipesService())
+	// }, [dispatch]);
 
 
     /* ---------------- example of calling api to fill redux store with data from the BE without thunk -------------------- */

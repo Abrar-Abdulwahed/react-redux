@@ -20,10 +20,13 @@ export const getRecipesService = () => async(dispatch)=> {
     }
 }
 
-export const getWishlistService = () => async(dispatch)=> {
+export const getWishlistService = () => async(dispatch, getState)=> {
     try{
         const response = await Axios.get(`/wishlist/${USER_ID}.json`);
-        dispatch(getWishlistAction(response.data));
+        const wishlistWithDetails = getState().blog.recipes.filter((recipe) => {
+            return  response.data.find((id) => recipe.id === id);
+          });
+        dispatch(getWishlistAction(wishlistWithDetails));
     }catch(err){
         throw new Error(err.message);
     }

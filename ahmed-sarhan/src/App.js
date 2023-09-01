@@ -7,7 +7,13 @@ import { Provider } from 'react-redux';
 import { store } from './redux';
 import RecipesPage from './pages/Recipes';
 import Wishlist from './pages/Wishlist';
+import { getRecipesService, getWishlistService } from './redux/services/recipes.services';
+import { useEffect } from 'react';
 function App() {
+	useEffect(() => {
+		store.dispatch(getRecipesService());
+		store.dispatch(getWishlistService());
+	}, []);
 	return (
 		<div>
 			<Provider store={store}>

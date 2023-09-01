@@ -5,10 +5,10 @@ import { useEffect } from 'react';
 
 const Wishlist = () => {
 	const wishlist = useSelector((state) => state.blog.wishlist);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getWishlistService())
-	}, [dispatch]);
+	// const dispatch = useDispatch();
+	// useEffect(() => {
+	// 	dispatch(getWishlistService())
+	// }, [dispatch]);
 
 	return (
 		<div>
