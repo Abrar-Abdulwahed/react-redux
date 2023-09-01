@@ -1,8 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import RecipeList from '../components/Recipes/RecipeList';
+import { getWishlistService } from '../redux/services/recipes.services';
+import { useEffect } from 'react';
 
 const Wishlist = () => {
 	const wishlist = useSelector((state) => state.blog.wishlist);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getWishlistService())
+	}, [dispatch]);
 
 	return (
 		<div>

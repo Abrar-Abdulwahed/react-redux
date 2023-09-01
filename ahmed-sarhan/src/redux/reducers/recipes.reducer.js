@@ -13,6 +13,15 @@ const recipesReducer = (state = INITIAL_STATE, action) => {
 				recipes: [...action.payload],
 			};
 		}
+		case RECIPES_ACTION_TYPES.GET_WISHLIST: {
+			const wishlistWithDetails = state.recipes.filter((recipe) => {
+				return action.payload.find((id) => recipe.id === id);
+			  });
+			return {
+				...state,
+				wishlist: [...wishlistWithDetails],
+			};
+		}
 		case RECIPES_ACTION_TYPES.ADD_TO_WISHLIST: {
 			return {
 				...state,

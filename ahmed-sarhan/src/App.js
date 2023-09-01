@@ -5,7 +5,6 @@ import Menu from './pages/Menu';
 import Cart from './pages/Cart';
 import { Provider } from 'react-redux';
 import { store } from './redux';
-import AddRecipe from './pages/AddReciepe';
 import RecipesPage from './pages/Recipes';
 import Wishlist from './pages/Wishlist';
 function App() {
