@@ -25,9 +25,13 @@
 			"image": "https://i.imgur.com/FQiukqk.jpeg"
 		}
 	],
-	"users": [
+	"recipes": [
 		{
-			"abrar": "d36ebd93-29f5-4ba6-b3f8-328c50c8c46e"
+			"title": "Grilled Shrimp with Konkani-Inspired Masala",
+			"category": "Family Dinner",
+			"description": "Konkan is a strip of land on the Western coast of India encompassing parts of Goa, Karnataka, and Maharashtra. In developing this recipe, I consulted a Konkani family friend, Sandhya Nadkarni, who offers Indian cooking classes and runs the blog Indfused. Sandhya explained that while Konkani recipes are generally diverse in flavors and textures, some fundamental commonalities do exist. Because of its tropical climate, Konkani people (those native to the Konkan region) often cook with coconut, chilies, and tamarind.",
+			"image": "https://i.imgur.com/k0NvIWD.jpeg",
+			"duration": 25
 		},
 		{
 			"title": "Blueberry Icebox Pie",

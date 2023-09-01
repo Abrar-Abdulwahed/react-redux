@@ -1,9 +1,8 @@
 import { useDispatch, useSelector, redux } from 'react-redux';
 import { ImStopwatch } from 'react-icons/im';
 import { BsHeartFill, BsHeart } from 'react-icons/bs';
-import { addToWishListAction, removeFromWishListAction } from '../../redux/actions/recipes.actions';
 import styles from './recipes.module.scss';
-import { addWishlistToApi } from '../../utils/addWishlistToApi';
+import { addWishlistService, removeFromWishlistService } from '../../redux/services/recipes.services';
 
 const RecipeCard = ({ recipe }) => {
 	const dispatch = useDispatch();
@@ -12,13 +11,10 @@ const RecipeCard = ({ recipe }) => {
 	);
 
 	const addToWishList = () => {
-		// redux.getState().blog.wishlist((recipe) => {
-		// 	addWishlistToApi(recipe);
-		// });
-		dispatch(addToWishListAction(recipe));
+		dispatch(addWishlistService(recipe));
 	};
 	const removeFromWishList = () => {
-		dispatch(removeFromWishListAction(recipe.id));
+		dispatch(removeFromWishlistService(recipe.id));
 	};
 	return (
 		<div className={styles['recipe-card']}>
