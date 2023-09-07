@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { order } from "../cake/cakeSlice"
 const initialState = {
     numberOfIcecreams: 20,
 }
@@ -15,13 +16,21 @@ const iceCreamSlice = createSlice({
             state.numberOfIcecreams += action.payload;
         }
     },
-    extraReducers:{
-        ["cake/order"]: (state) => 
-        {
-            state.numberOfIcecreams--;
-        }
+    //map object notation
+    // extraReducers:{
+    //     "cake/reFund": (state) => 
+    //     {
+    //         state.numberOfIcecreams--;
+    //     }
+    // },
+
+    //builder callback notation(recommended)
+    extraReducers: (builder) => {
+        builder.addCase(order, state => {
+            state.numberOfIcecreams -= 2;
+        });
     }
 })
 
-export const { order, reFund } = iceCreamSlice.actions
+export const cakeActions = iceCreamSlice.actions
 export default iceCreamSlice.reducer
