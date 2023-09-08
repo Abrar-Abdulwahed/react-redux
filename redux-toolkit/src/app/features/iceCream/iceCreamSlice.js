@@ -7,13 +7,16 @@ const iceCreamSlice = createSlice({
     name: 'icecream',
     initialState,
     reducers: {
-        order: (state) => 
-        {
+        //directly modify the state object by using the draft parameter.
+        order: (state) => {
             state.numberOfIcecreams--;
         },
-        reFund: (state, action) => 
-        {
-            state.numberOfIcecreams += action.payload;
+        //returning a new value instead of modifying the draft state directly
+        reFund: (state, action) => {
+            return {
+                ...state,
+                numberOfIcecreams: state.numberOfIcecreams + action.payload
+            };
         }
     },
     //map object notation
