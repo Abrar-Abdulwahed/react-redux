@@ -35,5 +35,5 @@ const iceCreamSlice = createSlice({
     }
 })
 
-export const cakeActions = iceCreamSlice.actions
+export const { order, reFund }  = iceCreamSlice.actions
 export default iceCreamSlice.reducer
