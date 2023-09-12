@@ -9,7 +9,7 @@ const initialState = {
 
 // async action
 const fetchUsers = createAsyncThunk("user/fetchUsers", async () => {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    const res = await axios.get("https://jsonplaceholder.typicodedd.com/users");
     const data = res.data;
     return data;
 });
